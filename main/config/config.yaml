@@ -1,0 +1,13 @@
+video_path: "R:/dpj20001/Yale/Dashcam_detect_ht/Data"
+output_folder: "R:/dpj20001/Yale/Dashcam_detect_ht/output"
+frame_interval: 1
+camera_intrinsics:
+  fx: 419.6
+  fy: 419.9
+  cx: 337.2
+  cy: 262.6
+depth_model: "LiheYoung/depth-anything-large-hf"
+yolo_model: "R:/dpj20001/Yale/Dashcam_detect_ht/Model/best.pt"
+sam_model: "sam_b.pt"
+scale_ratio: 1204.0
+height_threshold: 70
