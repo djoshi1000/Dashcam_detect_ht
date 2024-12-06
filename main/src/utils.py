@@ -4,6 +4,15 @@ import numpy as np
 from datetime import datetime
 
 def create_output_folder(base_path):
+    """
+    Creates an output folder with a timestamp to store results.
+
+    Args:
+        base_path (str): The base directory where the output folder will be created.
+
+    Returns:
+        str: The full path to the newly created output folder.
+    """
     # Get the current date and time in the desired format (e.g., YYYY-MM-DD_HH-MM-SS)
     current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     
@@ -18,6 +27,17 @@ def create_output_folder(base_path):
 
 # Function to resize pixel location based on new image dimensions
 def resize_pixel_location(original_shape, new_shape, original_pixel):
+        """
+    Resizes the location of a pixel based on the original image dimensions and new image dimensions.
+
+    Args:
+        original_shape (tuple): The original shape of the image (height, width).
+        new_shape (tuple): The new shape of the image (height, width).
+        original_pixel (tuple): The original pixel location (y, x) in the original image.
+
+    Returns:
+        tuple: The resized pixel location (new_y, new_x) in the new image dimensions.
+    """
     original_height, original_width = original_shape
     new_height, new_width = new_shape
     y_original, x_original = original_pixel
@@ -31,6 +51,15 @@ def resize_pixel_location(original_shape, new_shape, original_pixel):
     return new_y, new_x
 
 def load_camera_intrinsics(data):
+    """
+    Loads the camera intrinsics from a dictionary and returns them as a matrix.
+
+    Args:
+        data (dict): A dictionary containing camera intrinsic parameters.
+
+    Returns:
+        np.ndarray: A 3x3 camera intrinsics matrix.
+    """
 
     # Extract camera intrinsics
     fx = data['camera_intrinsics']['fx']
