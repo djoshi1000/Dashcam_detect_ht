@@ -1,6 +1,17 @@
-#This is the main file to run
-# Python run.py --config=config/config.yaml
+
+# Author: Durga P Joshi 
+# Date: 12/05/2024
+#
+# 
+# This script utilizes the following libraries:
+# - YOLO (Ultralytics) (https://github.com/ultralytics/ultralytics.git) 
+# - Depth-anything (https://github.com/LiheYoung/Depth-Anything)
+# - SAM (Segment Anything Model): https://github.com/facebookresearch/segment-anything
+
+# To run this file:
+# python run.py --config=config/config.yaml
 # You can change the directories in the config.yaml file
+
 
 # Import libraries
 import argparse
