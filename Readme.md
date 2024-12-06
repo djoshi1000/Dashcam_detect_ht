@@ -1,21 +1,21 @@
 
 # Dashcam: Detection, Height Estimation, and Geolocation of Roadside Objects
 This repository contains the Python implementation of a novel approach for detecting and estimating the height of roadside objects using dashcam video. This project is part of an ongoing Ph.D. study exploring real-time roadside vegetation and infrastructure monitoring using in-vehicle data sources. 
-PS: While this repository currently includes code for object detection and height estimation, additional components will be released following the publication of the associated research paper.
+### PS: While this repository currently includes code for object detection and height estimation, additional components will be released following the publication of the associated research paper.
 
 # Overview
 This tool processes dashboard camera video to detect and estimate the heights of roadside objects, such as trees and poles.
 
 # Methodology:
 
-## Object Detection:
+### Object Detection:
 Employs the YOLO v8 algorithm for object detection in video frames.
 
-## Depth Estimation:
+### Depth Estimation:
 Utilizes monocular vision to derive depth information from frames.
 Leverages a deep learning model for monocular depth estimation (Depth-Anything) to generate depth point clouds and images.
 
-#3 Height Calculation:
+### Height Calculation:
 Integrates depth information with bounding box coordinates of detected objects.
 Performs mathematical operations to extract height information of detected objects.
 
@@ -60,8 +60,8 @@ Depth estimation parameters
 Although YOLO v8 is integrated, you can replace it with other object detection algorithms. Update the detection parameters in the configuration file (config.yaml) as needed.
 Mathematical operations are applied to calculate height.
 
-# Example Results
-![input frame](https://github.com/djoshi1000/Dashcam_detect_ht/blob/main/Data/frame_1.png) | ![outputframe](https://github.com/djoshi1000/Dashcam_detect_ht/blob/main/output/2024-12-05_18-51-08/frame_1_0.png)
+### Example Results
+Output Frame![input frame](https://github.com/djoshi1000/Dashcam_detect_ht/blob/main/Data/frame_1.png) Output Frame ![outputframe](https://github.com/djoshi1000/Dashcam_detect_ht/blob/main/output/2024-12-05_18-51-08/frame_1_0.png)
 	
 # Acknowledgments
 This project builds upon the open-source contributions of:
