@@ -35,10 +35,11 @@ pip install -r requirements.txt
     - config.yaml                  # Configuration file for paths and parameters  
   - src  
     - depth_estimation.py          # Functions for monocular depth estimation  
-    - object_detection.py          # YOLO-based object detection code  
+    - object_detection.py          # YOLO-based object detection training code (not kept here)  
     - point_cloud.py               # Depth point cloud generation  
     - utils.py                     # Utility functions for preprocessing and analysis  
-    - Process.py                   # Functions for video frame processing  
+    - Process.py                   # Functions for video frame processing
+    - geolocation.py 		   # Geolocate the detected object (Not updated here. Will be updated after the published research).
   - run.py                           # Main execution script  
 - Model                               # YOLO model weights (e.g., `best.pt`)  
 - Output                              # Directory for output files (e.g., processed frames)  
