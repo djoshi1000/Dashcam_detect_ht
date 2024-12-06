@@ -63,7 +63,7 @@ When the above-mentioned result files are prepared, the `demo.py` can be used to
 
 | Fig. 1 | Fig. 2 |
 | ---------------------------------- | ----------------------------------  |
-| ![fig.1](./output/2024-12-05_18-51-08/frame_1_0.png)              | ![fig.2](./output/2024-12-05_18-51-08/frame_2_0.png)                                     |
+| ![fig.1](.output/2024-12-05_18-51-08/frame_1_0.png)              | ![fig.2](.output/2024-12-05_18-51-08/frame_2_0.png)                                     |
 
 
 
