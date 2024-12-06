@@ -31,14 +31,14 @@ pip install -r requirements.txt
 ####################### Code #######################    
 ├── Data/                                 # Input image frames  
 ├── Main/  
-    ├── config/  
-    │   └── config.yaml                  # Configuration file for paths and parameters  
+    ├──├── config/  
+       └── config.yaml                  # Configuration file for paths and parameters  
     ├── src/  
-    │   ├── depth_estimation.py          # Functions for monocular depth estimation  
-    │   ├── object_detection.py          # YOLO-based object detection code  
-    │   ├── point_cloud.py               # Depth point cloud generation  
-    │   ├── utils.py                     # Utility functions for preprocessing and analysis  
-    │   ├── Process.py                   # Functions for video frame processing  
+       └── depth_estimation.py          # Functions for monocular depth estimation  
+       └──  object_detection.py          # YOLO-based object detection code  
+       └──  point_cloud.py               # Depth point cloud generation  
+       └──  utils.py                     # Utility functions for preprocessing and analysis  
+       └──  Process.py                   # Functions for video frame processing  
     ├── run.py                           # Main execution script  
 ├── Model/                               # YOLO model weights (e.g., `best.pt`)  
 ├── Output/                              # Directory for output files (e.g., processed frames)  
