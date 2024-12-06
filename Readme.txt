@@ -1,76 +1,72 @@
-# Dashcam: Detection and height estimation of Objects from Dashcam video 
-This repository contains Python implementation of the height estimation of different roadside objects from dashcam video. 
 
+#Dashcam: Detection, Height Estimation, and Geolocation of Roadside Objects
+This repository contains the Python implementation of a novel approach for detecting and estimating the height of roadside objects using dashcam video. This project is part of an ongoing Ph.D. study exploring real-time roadside vegetation and infrastructure monitoring using in-vehicle data sources. While this repository currently includes code for object detection and height estimation, additional components will be released following the publication of the associated research paper.
 
-# Introduction
-This tool is designed to detect and estimate the heights of trees, poles, and other objects along the roadside from a video captured from the dashboard camera used in the vehicle. Firstly we used You Only Look Once (YOLO) algorithm to train and infer the objects on the video frame. Afterward, we create depth point clouds and images to get real-world information out of the frames. Since the camera uses monocular vision, we utilize the deep learning model of monocular depth estimation (https://github.com/LiheYoung/Depth-Anything) to get the depth information of the objects seen in the image frames of the videos. Various mathematical operations are further done to extract the height information of the detected objects
+#Overview
+This tool processes dashboard camera video to detect and estimate the heights of roadside objects, such as trees and poles.
 
-# Setup
-Clone this repo or download the zip file onto your local machine, then install the `requirements.txt` file to install relevant Python packages:
+#Methodology:
 
-```
-$ git clone https://github.com/
-$ python install -r requirements.txt
-```
+#Object Detection:
+Employs the YOLO v8 algorithm for object detection in video frames.
 
-# Code Structure
-Below is a quick overview of the function of each file.
+#Depth Estimation:
+Utilizes monocular vision to derive depth information from frames.
+Leverages a deep learning model for monocular depth estimation (Depth-Anything) to generate depth point clouds and images.
+
+#Height Calculation:
+Integrates depth information with bounding box coordinates of detected objects.
+Performs mathematical operations to extract height information of detected objects.
+
+#Installation
+Clone the repository and install the required Python packages listed in requirements.txt:
 
 ```bash
-########################### height estimation code ###########################    
-├──Data                                 #Input image frames
-├──Main/
-    ├── config/
-    │   └── config.yaml                    #Paths for the images or videos should be given here. Carefully analyze required parameters.
-    ├── src/
-    │   ├── __init__.py
-    │   ├── depth_estimation.py    
-    │   ├── object_detection.py
-    │   ├── point_cloud.py
-    │   ├── utilities.py
-    │   ├── video_processor.py
-    ├── run.py
-├──Model                                #best.pt is the preliminary trained yolov8 model with 5 different objects detected
-├──Output                                #Output frames saved
-├── requirements.txt
-├── README.md
-
+git clone https://github.com/djoshi1000/Dashcam_detect_ht.git
+cd <repo_name>
+pip install -r requirements.txt
 ```
 
-# Get started
-Use `demo.py` to run the code with sample data and default parameters. Execute the following command in the terminal, 
-or add `img_path config_fname` in the Parameters when run `demo.py` in the notebook:
-```bash
+Structure of the code:
+####################### Code #######################    
+├── Data/                                 # Input image frames  
+├── Main/  
+    ├── config/  
+    │   └── config.yaml                  # Configuration file for paths and parameters  
+    ├── src/  
+    │   ├── depth_estimation.py          # Functions for monocular depth estimation  
+    │   ├── object_detection.py          # YOLO-based object detection code  
+    │   ├── point_cloud.py               # Depth point cloud generation  
+    │   ├── utils.py                     # Utility functions for preprocessing and analysis  
+    │   ├── Process.py                   # Functions for video frame processing  
+    ├── run.py                           # Main execution script  
+├── Model/                               # YOLO model weights (e.g., `best.pt`)  
+├── Output/                              # Directory for output files (e.g., processed frames)  
+├── requirements.txt                     # List of dependencies  
+├── README.md                            # Documentation  
+
+#Usage:
+```
 python run.py --config=config/config.yaml
 ```
 
-The height estimation results will be written to `./data/ht_results/` accordingly.
+#Configuration
+Specify paths and parameters in the config.yaml file:
+Video/Input frames path/ output frame paths
+YOLO model configuration
+Depth estimation parameters
 
-# How to use
-In the detection part, object detection bounding box on the image is used. We then used the Segment Anything Model (SAM) to segment out our object detected inside the bounding box. We used YOLO v8 for this purpose. However, they can be obtained through different neural networks. We have not incorporated the training part of the yolo for object detection. One can manually provide the location of the target object and extract the depth information to furtthe calculate the height of the object. 
-  
-The installation and usage of the networks can be referred to as their official 
-repository. More details about the setup for this study can be referred to the author @ durga.joshi@uconn.eu.
-In addition, other networks can be tried for better results. If so, the config file `estimation_config.ini` 
-may need to be modified to align with the data, such as the segmentation labels. 
-
+#Note:
+Although YOLO v8 is integrated, you can replace it with other object detection algorithms. Update the detection parameters in the configuration file (config.yaml) as needed.
 
 
-When the above-mentioned result files are prepared, the `demo.py` can be used to estimate heights. 
-
-
-# Example results
-
-| Fig. 1 | Fig. 2 |
-| ---------------------------------- | ----------------------------------  |
-| ![fig.1](./output/2024-12-05_18-51-08/frame_1_0.png)              | ![fig.2](./output/2024-12-05_18-51-08/frame_2_0.png)                                     |
-
-
-
-# Acknowledgements
-We appreciate the open source of the following projects: 
-
-[1] [Depth-anything](https://github.com/LiheYoung/Depth-Anything) \
+Mathematical operations are applied to calculate height.
+Example Results
+![input frame](https://github.com/djoshi1000/Dashcam_detect_ht/blob/main/Data/frame_1.png) | ![outputframe](https://github.com/djoshi1000/Dashcam_detect_ht/blob/main/output/2024-12-05_18-51-08/frame_1_0.png)
+	
+Acknowledgments
+This project builds upon the open-source contributions of:
+[1] [Depth-anything](https://github.com/LiheYoung/Depth-Anything)
 [2] [Ultralytics](https://github.com/ultralytics/ultralytics.git) 
 
-
+For inquiries or further details, contact Durga Joshi at durga.joshi@uconn.edu.
