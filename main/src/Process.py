@@ -1,3 +1,10 @@
+"""
+This code reads the input file either video or image frames and first uses the YOLO trained model to detect and track the objects and then uses SAM to segment out the boundary.
+The segmented boundary is then used to get the depth value. The depth value is collected from the point cloud created by the depth-anything algorithm point cloud. 
+We used 1/10 of the height of the detected object assuming that it would neither be too high nor too low. Then we use simple photogrammetry mathematical logic to acquire the object height. 
+
+The saved frame will have a bounding box around the object, and the Calculated height and the distance from the camera will be displayed. 
+"""
 import os, glob, cv2
 import numpy as np
 import gc
